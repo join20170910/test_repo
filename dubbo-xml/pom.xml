@@ -8,10 +8,10 @@
         <version>2.2.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.bj</groupId>
-    <artifactId>git-study</artifactId>
+    <groupId>com.ws</groupId>
+    <artifactId>dubbo-xml</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>git-study</name>
+    <name>dubboXml</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -22,7 +22,7 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.dubbo</groupId>
@@ -34,6 +34,11 @@
             <artifactId>dubbo-dependencies-zookeeper</artifactId>
             <version>${dubbo.version}</version>
             <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>com.ws</groupId>
+            <artifactId>duboo-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -58,36 +63,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>io.fabric8</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>0.33.0</version>
-
-                <configuration>
-                    <dockerHost>tcp://111.229.61.54:2375</dockerHost>
-                    <registry>registry.cn-shenzhen.aliyuncs.com</registry>
-                    <authConfig>
-                        <push>
-                            <username>forsumlove</username>
-                            <password>Lfy123456</password>
-                        </push>
-                    </authConfig>
-                    <images>
-                        <image>
-                            <name>lfy/icoding-docker:v1.2</name>
-                            <build>
-                                <!--使用dockerFile文件 <dockerFile>${project.basedir}/docker/${project.name}</dockerFile>-->
-                                <dockerFile>${project.basedir}/Dockerfile</dockerFile>
-                            </build>
-                            <run>
-                                <ports>
-                                    <port>8080:8080</port>
-                                </ports>
-                            </run>
-                        </image>
-                    </images>
-                </configuration>
             </plugin>
         </plugins>
     </build>
